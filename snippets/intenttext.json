@@ -1,0 +1,110 @@
+{
+  "Title + Summary": {
+    "prefix": "doc",
+    "body": [
+      "title: ${1:Document Title}",
+      "summary: ${2:Brief description}",
+      "",
+      "$0"
+    ],
+    "description": "IntentText document header"
+  },
+  "Section": {
+    "prefix": "section",
+    "body": [
+      "section: ${1:Section Name}",
+      "$0"
+    ],
+    "description": "Section heading"
+  },
+  "Task": {
+    "prefix": "task",
+    "body": [
+      "task: ${1:Task description} | owner: ${2:person} | due: ${3:date}"
+    ],
+    "description": "Task with owner and due date"
+  },
+  "Step": {
+    "prefix": "step",
+    "body": [
+      "step: ${1:Step description} | tool: ${2:tool-name} | id: ${3:step-id}"
+    ],
+    "description": "Workflow step"
+  },
+  "Decision": {
+    "prefix": "decision",
+    "body": [
+      "decision: ${1:Condition check} | if: ${2:condition} | then: ${3:step-id} | else: ${4:step-id}"
+    ],
+    "description": "Conditional branch"
+  },
+  "Gate": {
+    "prefix": "gate",
+    "body": [
+      "gate: ${1:Approval name} | approver: ${2:person-or-team}"
+    ],
+    "description": "Human approval gate"
+  },
+  "Note": {
+    "prefix": "note",
+    "body": [
+      "note: ${1:Note content}"
+    ],
+    "description": "Note callout"
+  },
+  "Warning": {
+    "prefix": "warning",
+    "body": [
+      "warning: ${1:Warning content}"
+    ],
+    "description": "Warning callout"
+  },
+  "Code Block": {
+    "prefix": "code",
+    "body": [
+      "code: ${1:language}",
+      "$0",
+      "end:"
+    ],
+    "description": "Code block with language"
+  },
+  "Parallel": {
+    "prefix": "parallel",
+    "body": [
+      "parallel: ${1:Parallel group} | steps: ${2:step-a,step-b}"
+    ],
+    "description": "Parallel execution block"
+  },
+  "Workflow Template": {
+    "prefix": "workflow",
+    "body": [
+      "title: ${1:Workflow Name}",
+      "summary: ${2:Description}",
+      "",
+      "section: Steps",
+      "step: ${3:First step} | tool: ${4:tool} | id: step-1",
+      "step: ${5:Second step} | tool: ${6:tool} | id: step-2 | depends: step-1",
+      "",
+      "section: Approval",
+      "gate: ${7:Review} | approver: ${8:team}",
+      "",
+      "result: ${9:Final output}"
+    ],
+    "description": "Complete workflow template"
+  },
+  "Template Variable": {
+    "prefix": "var",
+    "body": [
+      "{{${1:variable}}}"
+    ],
+    "description": "Template variable placeholder"
+  },
+  "Print Layout": {
+    "prefix": "print",
+    "body": [
+      "font: ${1:Georgia} | size: ${2:12pt} | leading: ${3:1.6}",
+      "page: ${4:A4} | margins: ${5:2.5cm}"
+    ],
+    "description": "Print layout settings"
+  }
+}

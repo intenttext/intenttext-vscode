@@ -1,0 +1,98 @@
+{
+  "name": "intenttext",
+  "displayName": "IntentText (.it)",
+  "description": "Syntax highlighting, live preview, inline validation, hover docs, and auto-completion for IntentText documents",
+  "version": "1.0.0",
+  "publisher": "intenttext",
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/intenttext/intenttext-vscode"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters",
+    "Snippets"
+  ],
+  "keywords": [
+    "intenttext",
+    ".it",
+    "workflow",
+    "agentic",
+    "structured document"
+  ],
+  "activationEvents": [
+    "onLanguage:intenttext"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "intenttext",
+        "aliases": [
+          "IntentText",
+          "it"
+        ],
+        "extensions": [
+          ".it"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "intenttext",
+        "scopeName": "source.intenttext",
+        "path": "./syntaxes/intenttext.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "intenttext",
+        "path": "./snippets/intenttext.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "intenttext.preview",
+        "title": "IntentText: Open Preview",
+        "icon": "$(open-preview)"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "intenttext.preview",
+        "key": "ctrl+shift+v",
+        "mac": "cmd+shift+v",
+        "when": "editorLangId == intenttext"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "intenttext.preview",
+          "when": "editorLangId == intenttext",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "compile": "esbuild src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node --sourcemap",
+    "watch": "npm run compile -- --watch",
+    "package": "npx vsce package",
+    "publish": "npx vsce publish"
+  },
+  "dependencies": {
+    "@intenttext/core": ">=2.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "esbuild": "^0.20.0",
+    "typescript": "^5.0.0"
+  }
+}
