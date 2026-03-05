@@ -42,21 +42,21 @@ Hover over any keyword (`step:`, `gate:`, `decision:`, `task:`, …) to see:
 
 13 built-in snippets for common patterns:
 
-| Prefix | Description |
-|--------|-------------|
-| `doc` | Full document skeleton |
-| `section` | Section heading |
-| `task` | Task with owner and due date |
-| `step` | Workflow step |
-| `decision` | If/then/else branch |
-| `gate` | Human approval gate |
-| `note` | Note callout |
-| `warning` | Warning callout |
-| `code` | Code block with language |
-| `parallel` | Parallel execution block |
-| `workflow` | Full workflow template |
-| `var` | Template variable |
-| `print` | Print layout settings |
+| Prefix     | Description                  |
+| ---------- | ---------------------------- |
+| `doc`      | Full document skeleton       |
+| `section`  | Section heading              |
+| `task`     | Task with owner and due date |
+| `step`     | Workflow step                |
+| `decision` | If/then/else branch          |
+| `gate`     | Human approval gate          |
+| `note`     | Note callout                 |
+| `warning`  | Warning callout              |
+| `code`     | Code block with language     |
+| `parallel` | Parallel execution block     |
+| `workflow` | Full workflow template       |
+| `var`      | Template variable            |
+| `print`    | Print layout settings        |
 
 ## Requirements
 

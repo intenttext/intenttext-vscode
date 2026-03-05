@@ -87,7 +87,15 @@ const KEYWORD_DOCS: Record<
   },
   step: {
     description: "Execute a tool or action in a workflow.",
-    properties: ["tool", "input", "output", "depends", "id", "status", "timeout"],
+    properties: [
+      "tool",
+      "input",
+      "output",
+      "depends",
+      "id",
+      "status",
+      "timeout",
+    ],
   },
   decision: {
     description:
@@ -227,11 +235,11 @@ export function createHoverProvider(): vscode.HoverProvider {
       md.appendMarkdown(`**\`${keyword}:\`** — ${docs.description}\n\n`);
       if (docs.properties.length > 0) {
         md.appendMarkdown(
-          `**Properties:** ${docs.properties.map((p) => `\`${p}:\``).join(", ")}`
+          `**Properties:** ${docs.properties.map((p) => `\`${p}:\``).join(", ")}`,
         );
       }
       md.appendMarkdown(
-        `\n\n[IntentText Spec](https://github.com/intenttext/IntentText/blob/main/docs/SPEC.md)`
+        `\n\n[IntentText Spec](https://github.com/intenttext/IntentText/blob/main/docs/SPEC.md)`,
       );
 
       return new vscode.Hover(md);

@@ -38,18 +38,18 @@ export function activate(context: vscode.ExtensionContext) {
     // Hover
     vscode.languages.registerHoverProvider(
       { language: LANGUAGE_ID },
-      createHoverProvider()
+      createHoverProvider(),
     ),
 
     // Completion
     vscode.languages.registerCompletionItemProvider(
       { language: LANGUAGE_ID },
       createCompletionProvider(),
-      "|" // trigger on pipe
+      "|", // trigger on pipe
     ),
 
     // Preview command
-    createPreviewCommand()
+    createPreviewCommand(),
   );
 
   // Run diagnostics for already-open documents

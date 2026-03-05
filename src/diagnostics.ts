@@ -1,12 +1,9 @@
 import * as vscode from "vscode";
-import {
-  parseIntentText,
-  validateDocumentSemantic,
-} from "./parser-bridge";
+import { parseIntentText, validateDocumentSemantic } from "./parser-bridge";
 import type { IntentDocument } from "./parser-bridge";
 
 export function createDiagnosticsProvider(
-  collection: vscode.DiagnosticCollection
+  collection: vscode.DiagnosticCollection,
 ) {
   return function updateDiagnostics(document: vscode.TextDocument): void {
     if (document.languageId !== "intenttext") return;
@@ -29,15 +26,15 @@ export function createDiagnosticsProvider(
 
       const range = new vscode.Range(
         new vscode.Position(blockLine, 0),
-        new vscode.Position(blockLine, 10000)
+        new vscode.Position(blockLine, 10000),
       );
 
       const severity =
         issue.type === "error"
           ? vscode.DiagnosticSeverity.Error
           : issue.type === "warning"
-          ? vscode.DiagnosticSeverity.Warning
-          : vscode.DiagnosticSeverity.Information;
+            ? vscode.DiagnosticSeverity.Warning
+            : vscode.DiagnosticSeverity.Information;
 
       const diagnostic = new vscode.Diagnostic(range, issue.message, severity);
       diagnostic.source = "IntentText";
@@ -51,7 +48,7 @@ export function createDiagnosticsProvider(
 function findBlockLine(
   source: string,
   blockId: string,
-  doc: IntentDocument
+  doc: IntentDocument,
 ): number {
   const block = doc.blocks.find((b) => b.id === blockId);
   if (!block) return -1;

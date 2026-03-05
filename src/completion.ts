@@ -14,7 +14,7 @@ export function createCompletionProvider(): vscode.CompletionItemProvider {
         for (const keyword of ALL_KEYWORDS) {
           const item = new vscode.CompletionItem(
             `${keyword}:`,
-            vscode.CompletionItemKind.Keyword
+            vscode.CompletionItemKind.Keyword,
           );
           item.insertText = new vscode.SnippetString(`${keyword}: $1`);
           item.detail = "IntentText keyword";
@@ -32,10 +32,10 @@ export function createCompletionProvider(): vscode.CompletionItemProvider {
           for (const prop of schema) {
             const item = new vscode.CompletionItem(
               `${prop.key}:`,
-              vscode.CompletionItemKind.Property
+              vscode.CompletionItemKind.Property,
             );
             item.insertText = new vscode.SnippetString(
-              `${prop.key}: ${prop.placeholder ? `\${1:${prop.placeholder}}` : "$1"}`
+              `${prop.key}: ${prop.placeholder ? `\${1:${prop.placeholder}}` : "$1"}`,
             );
             item.detail = prop.label;
             if (prop.options) {

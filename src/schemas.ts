@@ -1,24 +1,63 @@
 export const ALL_KEYWORDS = [
   // Structure
-  "title", "summary", "section", "sub",
+  "title",
+  "summary",
+  "section",
+  "sub",
   // Callouts
-  "note", "info", "warning", "tip", "success",
+  "note",
+  "info",
+  "warning",
+  "tip",
+  "success",
   // Content
-  "quote", "image", "link", "ref", "embed", "code", "end",
+  "quote",
+  "image",
+  "link",
+  "ref",
+  "embed",
+  "code",
+  "end",
   // Tables
-  "headers", "row",
+  "headers",
+  "row",
   // Tasks
-  "task", "done", "ask",
+  "task",
+  "done",
+  "ask",
   // Agentic
-  "step", "decision", "trigger", "loop", "checkpoint",
-  "audit", "error", "import", "export", "progress", "context",
-  "result", "handoff", "wait", "parallel", "retry",
-  "gate", "call", "emit",
+  "step",
+  "decision",
+  "trigger",
+  "loop",
+  "checkpoint",
+  "audit",
+  "error",
+  "import",
+  "export",
+  "progress",
+  "context",
+  "result",
+  "handoff",
+  "wait",
+  "parallel",
+  "retry",
+  "gate",
+  "call",
+  "emit",
   // Metadata
-  "agent", "model",
+  "agent",
+  "model",
   // Document generation
-  "font", "page", "break", "byline", "epigraph", "caption",
-  "footnote", "toc", "dedication",
+  "font",
+  "page",
+  "break",
+  "byline",
+  "epigraph",
+  "caption",
+  "footnote",
+  "toc",
+  "dedication",
   // Divider (special)
   "divider",
 ] as const;
@@ -37,7 +76,11 @@ export const BLOCK_SCHEMAS: Record<string, PropertySchema[]> = {
     { key: "output", label: "Output variable", placeholder: "var" },
     { key: "depends", label: "Step dependency", placeholder: "step-id" },
     { key: "id", label: "Unique step ID", placeholder: "step-id" },
-    { key: "status", label: "Execution status", options: ["pending", "running", "done", "failed", "blocked"] },
+    {
+      key: "status",
+      label: "Execution status",
+      options: ["pending", "running", "done", "failed", "blocked"],
+    },
     { key: "timeout", label: "Timeout duration", placeholder: "30s" },
   ],
   gate: [
@@ -65,13 +108,21 @@ export const BLOCK_SCHEMAS: Record<string, PropertySchema[]> = {
     { key: "priority", label: "Priority", options: ["1", "2", "3"] },
   ],
   parallel: [
-    { key: "steps", label: "Step IDs to run in parallel", placeholder: "step-a,step-b" },
+    {
+      key: "steps",
+      label: "Step IDs to run in parallel",
+      placeholder: "step-a,step-b",
+    },
     { key: "join", label: "Join strategy", options: ["all", "any"] },
   ],
   retry: [
     { key: "max", label: "Max retries", placeholder: "3" },
     { key: "delay", label: "Delay between retries", placeholder: "5s" },
-    { key: "backoff", label: "Backoff strategy", options: ["linear", "exponential"] },
+    {
+      key: "backoff",
+      label: "Backoff strategy",
+      options: ["linear", "exponential"],
+    },
   ],
   handoff: [
     { key: "from", label: "Source agent", placeholder: "agent-a" },
@@ -97,9 +148,7 @@ export const BLOCK_SCHEMAS: Record<string, PropertySchema[]> = {
   result: [
     { key: "depends", label: "Depends on step", placeholder: "step-id" },
   ],
-  checkpoint: [
-    { key: "save", label: "Data to save", placeholder: "key" },
-  ],
+  checkpoint: [{ key: "save", label: "Data to save", placeholder: "key" }],
   image: [
     { key: "src", label: "Image URL", placeholder: "https://..." },
     { key: "alt", label: "Alt text", placeholder: "description" },
@@ -114,9 +163,7 @@ export const BLOCK_SCHEMAS: Record<string, PropertySchema[]> = {
     { key: "src", label: "Embed URL", placeholder: "https://..." },
     { key: "type", label: "Embed type", options: ["iframe", "video", "audio"] },
   ],
-  code: [
-    { key: "language", label: "Language", placeholder: "typescript" },
-  ],
+  code: [{ key: "language", label: "Language", placeholder: "typescript" }],
   font: [
     { key: "family", label: "Font family", placeholder: "Georgia" },
     { key: "size", label: "Font size", placeholder: "12pt" },
@@ -131,17 +178,23 @@ export const BLOCK_SCHEMAS: Record<string, PropertySchema[]> = {
     { key: "header", label: "Header text", placeholder: "text" },
     { key: "footer", label: "Footer text", placeholder: "text" },
     { key: "columns", label: "Column count", options: ["1", "2", "3"] },
-    { key: "numbering", label: "Page numbering", options: ["arabic", "roman", "none"] },
-    { key: "orientation", label: "Orientation", options: ["portrait", "landscape"] },
+    {
+      key: "numbering",
+      label: "Page numbering",
+      options: ["arabic", "roman", "none"],
+    },
+    {
+      key: "orientation",
+      label: "Orientation",
+      options: ["portrait", "landscape"],
+    },
   ],
   byline: [
     { key: "date", label: "Publication date", placeholder: "2026-03-05" },
     { key: "publication", label: "Publication name", placeholder: "name" },
     { key: "role", label: "Author role", placeholder: "Senior Editor" },
   ],
-  footnote: [
-    { key: "text", label: "Footnote text", placeholder: "text" },
-  ],
+  footnote: [{ key: "text", label: "Footnote text", placeholder: "text" }],
   toc: [
     { key: "depth", label: "Heading depth", options: ["1", "2", "3"] },
     { key: "title", label: "TOC title", placeholder: "Contents" },

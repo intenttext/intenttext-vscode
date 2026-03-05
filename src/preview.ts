@@ -18,7 +18,7 @@ export function createPreviewCommand(): vscode.Disposable {
         "intenttextPreview",
         "IntentText Preview",
         vscode.ViewColumn.Beside,
-        { enableScripts: false }
+        { enableScripts: false },
       );
       panel.onDidDispose(() => {
         panel = undefined;
