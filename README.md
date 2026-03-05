@@ -1,5 +1,7 @@
 # IntentText for VS Code
 
+[![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/intenttext.intenttext?label=VS%20Code%20Marketplace)](https://marketplace.visualstudio.com/items?itemName=intenttext.intenttext)
+
 **Syntax highlighting, live preview, validation, and auto-completion for [IntentText](https://github.com/intenttext/IntentText) (`.it`) documents.**
 
 ## Features
