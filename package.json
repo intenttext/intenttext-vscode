@@ -24,9 +24,7 @@
     "agentic",
     "structured document"
   ],
-  "activationEvents": [
-    "onLanguage:intenttext"
-  ],
+  "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
     "languages": [
