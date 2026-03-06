@@ -155,6 +155,20 @@
               "name": "comment.block.trust.revision.intenttext"
             }
           }
+        },
+        {
+          "match": "^(amendment|amend|change)(:)\\s*(.*)",
+          "captures": {
+            "1": {
+              "name": "markup.bold.trust.amendment.intenttext"
+            },
+            "2": {
+              "name": "punctuation.separator.intenttext"
+            },
+            "3": {
+              "name": "string.unquoted.content.intenttext"
+            }
+          }
         }
       ]
     },
@@ -173,7 +187,7 @@
       }
     },
     "keyword-section": {
-      "match": "^(section|sub|subsection)(:)\\s*(.*)",
+      "match": "^(section|sub|subsection|deadline|due|milestone|due-date)(:)\\s*(.*)",
       "captures": {
         "1": {
           "name": "keyword.control.section.intenttext"
@@ -229,7 +243,7 @@
       }
     },
     "keyword-content": {
-      "match": "^(quote|image|link|ref|embed|code|end|headers|row)(:)\\s*(.*)",
+      "match": "^(quote|image|link|ref|embed|code|end|headers|row|def|define|term|glossary|figure|fig|diagram|chart|contact|person|party)(:)\\s*(.*)",
       "captures": {
         "1": {
           "name": "support.type.content.intenttext"
@@ -243,7 +257,7 @@
       }
     },
     "keyword-docgen": {
-      "match": "^(font|page|break|byline|epigraph|caption|footnote|toc|dedication)(:)\\s*(.*)",
+      "match": "^(font|page|break|byline|epigraph|caption|footnote|toc|dedication|signline|signature-line|sign-here|sig)(:)\\s*(.*)",
       "captures": {
         "1": {
           "name": "storage.type.docgen.intenttext"
@@ -257,7 +271,7 @@
       }
     },
     "keyword-metadata": {
-      "match": "^(agent|model|status)(:)\\s*(.*)",
+      "match": "^(agent|model|status|metric|kpi|measure|stat)(:)\\s*(.*)",
       "captures": {
         "1": {
           "name": "constant.language.metadata.intenttext"

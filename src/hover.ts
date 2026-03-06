@@ -53,8 +53,9 @@ const KEYWORD_DOCS: Record<
     properties: ["href", "title"],
   },
   ref: {
-    description: "Internal cross-reference.",
-    properties: [],
+    description:
+      "Cross-document reference — records a structural relationship between this document and another by file path or URL.",
+    properties: ["file", "url", "rel", "section", "at"],
   },
   embed: {
     description: "Embed external content (iframe, video, audio).",
@@ -265,6 +266,41 @@ const KEYWORD_DOCS: Record<
       "was",
       "now",
     ],
+  },
+  def: {
+    description:
+      "Term definition — machine-readable glossary entry. Groups into glossary when multiple defs appear in a section.",
+    properties: ["meaning", "abbr", "context", "see"],
+  },
+  metric: {
+    description:
+      "Measurable value with optional target and trend. Renders as a metric card with color-coded comparison.",
+    properties: ["value", "unit", "target", "trend", "period", "source"],
+  },
+  amendment: {
+    description:
+      "Formal change to a frozen document. Appears after freeze: block — preserves the original seal while recording what changed.",
+    properties: ["section", "was", "now", "ref", "by", "at"],
+  },
+  figure: {
+    description:
+      "Numbered, captioned, referenceable visual. Different from image: — a figure floats in print, carries a number, and has a caption.",
+    properties: ["src", "caption", "alt", "width", "align"],
+  },
+  signline: {
+    description:
+      "Physical signature placeholder for print output. Renders a line for handwritten signatures with name, role, and optional date.",
+    properties: ["label", "name", "role", "date"],
+  },
+  contact: {
+    description:
+      "Structured contact information. Renders as a contact card with clickable email and phone links.",
+    properties: ["role", "org", "email", "phone", "url"],
+  },
+  deadline: {
+    description:
+      "Temporal commitment with consequence. Renders with proximity color coding — red when < 7 days, amber < 30 days.",
+    properties: ["date", "consequence", "owner", "status"],
   },
 };
 

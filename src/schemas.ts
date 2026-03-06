@@ -18,6 +18,9 @@ export const ALL_KEYWORDS = [
   "embed",
   "code",
   "end",
+  "def",
+  "figure",
+  "contact",
   // Tables
   "headers",
   "row",
@@ -61,6 +64,11 @@ export const ALL_KEYWORDS = [
   "dedication",
   // Divider (special)
   "divider",
+  // v2.11 additions
+  "metric",
+  "amendment",
+  "signline",
+  "deadline",
 ] as const;
 
 export interface PropertySchema {
@@ -230,5 +238,93 @@ export const BLOCK_SCHEMAS: Record<string, PropertySchema[]> = {
   context: [
     { key: "key", label: "Context key", placeholder: "key" },
     { key: "value", label: "Context value", placeholder: "value" },
+  ],
+  ref: [
+    { key: "file", label: "File path", placeholder: "./path/to/file.it" },
+    { key: "url", label: "External URL", placeholder: "https://..." },
+    {
+      key: "rel",
+      label: "Relationship type",
+      options: [
+        "supersedes",
+        "amends",
+        "governed-by",
+        "payment",
+        "basis",
+        "continuation",
+        "relates-to",
+        "source",
+      ],
+    },
+    { key: "section", label: "Referenced section", placeholder: "section" },
+    { key: "at", label: "Date established", placeholder: "2026-01-01" },
+  ],
+  def: [
+    {
+      key: "meaning",
+      label: "Definition",
+      placeholder: "The meaning of the term",
+    },
+    { key: "abbr", label: "Abbreviation", placeholder: "ABBR" },
+    { key: "context", label: "Usage context", placeholder: "legal" },
+    { key: "see", label: "See also", placeholder: "related-term" },
+  ],
+  metric: [
+    { key: "value", label: "Measured value", placeholder: "0" },
+    { key: "unit", label: "Unit of measure", placeholder: "unit" },
+    { key: "target", label: "Target value", placeholder: "0" },
+    {
+      key: "trend",
+      label: "Trend direction",
+      options: ["up", "down", "stable", "at-risk"],
+    },
+    { key: "period", label: "Measurement period", placeholder: "Q1 2026" },
+    { key: "source", label: "Data source", placeholder: "source" },
+  ],
+  amendment: [
+    { key: "section", label: "Amended section", placeholder: "Section Name" },
+    { key: "was", label: "Previous value", placeholder: "old text" },
+    { key: "now", label: "New value", placeholder: "new text" },
+    { key: "ref", label: "Amendment reference", placeholder: "Amendment #1" },
+    { key: "by", label: "Amended by", placeholder: "name" },
+    { key: "at", label: "Amendment date", placeholder: "2026-01-01" },
+  ],
+  figure: [
+    { key: "src", label: "Image source", placeholder: "https://..." },
+    { key: "caption", label: "Figure caption", placeholder: "caption" },
+    { key: "alt", label: "Alt text", placeholder: "description" },
+    { key: "width", label: "Width", placeholder: "100%" },
+    { key: "align", label: "Alignment", options: ["left", "center", "right"] },
+  ],
+  signline: [
+    {
+      key: "label",
+      label: "Signature label",
+      placeholder: "Authorized Signatory",
+    },
+    { key: "name", label: "Signer name", placeholder: "Full Name" },
+    { key: "role", label: "Signer role", placeholder: "CEO" },
+    { key: "date", label: "Show date line", options: ["true", "false"] },
+  ],
+  contact: [
+    { key: "role", label: "Role", placeholder: "role" },
+    { key: "org", label: "Organization", placeholder: "org" },
+    { key: "email", label: "Email", placeholder: "email@example.com" },
+    { key: "phone", label: "Phone", placeholder: "+1-555-0100" },
+    { key: "url", label: "Website", placeholder: "https://..." },
+  ],
+  deadline: [
+    { key: "date", label: "Deadline date", placeholder: "2026-12-31" },
+    {
+      key: "consequence",
+      label: "Consequence if missed",
+      placeholder: "penalty",
+    },
+    { key: "owner", label: "Responsible person", placeholder: "person" },
+    {
+      key: "status",
+      label: "Status",
+      options: ["pending", "met", "missed", "extended"],
+    },
   ],
 };

@@ -127,5 +127,61 @@
       "approve: ${1:description} | by: ${2:name} | role: ${3:role} | at: ${4:timestamp}"
     ],
     "description": "Workflow approval stamp"
+  },
+  "Ref": {
+    "prefix": "ref",
+    "body": [
+      "ref: ${1:Document name} | file: ${2:./path/to/file.it} | rel: ${3|supersedes,amends,governed-by,payment,basis,continuation,relates-to,source|}"
+    ],
+    "description": "Cross-document reference with relationship"
+  },
+  "Definition": {
+    "prefix": "def",
+    "body": [
+      "def: ${1:Term} | meaning: ${2:Definition text}"
+    ],
+    "description": "Term definition / glossary entry"
+  },
+  "Metric": {
+    "prefix": "metric",
+    "body": [
+      "metric: ${1:Metric name} | value: ${2:0} | unit: ${3:unit} | target: ${4:0} | trend: ${5|up,down,stable,at-risk|}"
+    ],
+    "description": "Measurable value with target and trend"
+  },
+  "Amendment": {
+    "prefix": "amendment",
+    "body": [
+      "amendment: ${1:Description} | section: ${2:Section} | was: ${3:old value} | now: ${4:new value} | ref: ${5:Amendment #1} | by: ${6:name} | at: ${7:date}"
+    ],
+    "description": "Formal change to a frozen document"
+  },
+  "Figure": {
+    "prefix": "figure",
+    "body": [
+      "figure: ${1:Caption} | src: ${2:image-url} | alt: ${3:Alt text}"
+    ],
+    "description": "Numbered captioned visual"
+  },
+  "Signline": {
+    "prefix": "signline",
+    "body": [
+      "signline: ${1:Signature label} | name: ${2:Full Name} | role: ${3:Role}"
+    ],
+    "description": "Physical signature placeholder for print"
+  },
+  "Contact": {
+    "prefix": "contact",
+    "body": [
+      "contact: ${1:Full Name} | role: ${2:Role} | org: ${3:Organization} | email: ${4:email@example.com} | phone: ${5:+1-555-0100}"
+    ],
+    "description": "Structured contact information"
+  },
+  "Deadline": {
+    "prefix": "deadline",
+    "body": [
+      "deadline: ${1:Milestone name} | date: ${2:2026-12-31} | owner: ${3:person} | consequence: ${4:What happens if missed}"
+    ],
+    "description": "Temporal commitment with consequence"
   }
 }
