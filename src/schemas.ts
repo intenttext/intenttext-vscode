@@ -45,6 +45,7 @@ export const ALL_KEYWORDS = [
   "gate",
   "call",
   "emit",
+  "policy",
   // Metadata
   "agent",
   "model",
@@ -149,6 +150,33 @@ export const BLOCK_SCHEMAS: Record<string, PropertySchema[]> = {
     { key: "depends", label: "Depends on step", placeholder: "step-id" },
   ],
   checkpoint: [{ key: "save", label: "Data to save", placeholder: "key" }],
+  policy: [
+    { key: "if", label: "Condition expression", placeholder: "condition" },
+    {
+      key: "always",
+      label: "Unconditional requirement",
+      placeholder: "behaviour",
+    },
+    {
+      key: "never",
+      label: "Unconditional prohibition",
+      placeholder: "behaviour",
+    },
+    {
+      key: "action",
+      label: "Consequence when rule applies",
+      placeholder: "action",
+    },
+    {
+      key: "requires",
+      label: "Prerequisite approval",
+      placeholder: "approver",
+    },
+    { key: "notify", label: "Alert recipient", placeholder: "team" },
+    { key: "priority", label: "Rule evaluation order", placeholder: "1" },
+    { key: "scope", label: "Where this rule applies", placeholder: "scope" },
+    { key: "after", label: "Fire after N occurrences", placeholder: "3_turns" },
+  ],
   image: [
     { key: "src", label: "Image URL", placeholder: "https://..." },
     { key: "alt", label: "Alt text", placeholder: "description" },

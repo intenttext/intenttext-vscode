@@ -162,6 +162,22 @@ const KEYWORD_DOCS: Record<
     description: "Emit an event or status update.",
     properties: [],
   },
+  policy: {
+    description:
+      "A standing behavioural rule for agents — what to always, never, or conditionally do.",
+    properties: [
+      "if",
+      "always",
+      "never",
+      "action",
+      "requires",
+      "notify",
+      "priority",
+      "id",
+      "scope",
+      "after",
+    ],
+  },
   agent: {
     description: "Declare the AI agent executing this workflow.",
     properties: [],
