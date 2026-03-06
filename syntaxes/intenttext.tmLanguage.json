@@ -62,6 +62,9 @@
           "include": "#keyword-section"
         },
         {
+          "include": "#keyword-trust"
+        },
+        {
           "include": "#keyword-agentic"
         },
         {
@@ -78,6 +81,80 @@
         },
         {
           "include": "#keyword-metadata"
+        }
+      ]
+    },
+    "keyword-trust": {
+      "patterns": [
+        {
+          "match": "^(track)(:)\\s*(.*)",
+          "captures": {
+            "1": {
+              "name": "keyword.control.title.intenttext"
+            },
+            "2": {
+              "name": "punctuation.separator.intenttext"
+            },
+            "3": {
+              "name": "string.unquoted.content.intenttext"
+            }
+          }
+        },
+        {
+          "match": "^(sign)(:)\\s*(.*)",
+          "captures": {
+            "1": {
+              "name": "markup.bold.trust.sign.intenttext"
+            },
+            "2": {
+              "name": "punctuation.separator.intenttext"
+            },
+            "3": {
+              "name": "string.unquoted.content.intenttext"
+            }
+          }
+        },
+        {
+          "match": "^(approve)(:)\\s*(.*)",
+          "captures": {
+            "1": {
+              "name": "markup.inserted.trust.approve.intenttext"
+            },
+            "2": {
+              "name": "punctuation.separator.intenttext"
+            },
+            "3": {
+              "name": "string.unquoted.content.intenttext"
+            }
+          }
+        },
+        {
+          "match": "^(freeze)(:)\\s*(.*)",
+          "captures": {
+            "1": {
+              "name": "markup.deleted.trust.freeze.intenttext"
+            },
+            "2": {
+              "name": "punctuation.separator.intenttext"
+            },
+            "3": {
+              "name": "string.unquoted.content.intenttext"
+            }
+          }
+        },
+        {
+          "match": "^(revision)(:)\\s*(.*)",
+          "captures": {
+            "1": {
+              "name": "comment.block.trust.revision.intenttext"
+            },
+            "2": {
+              "name": "punctuation.separator.intenttext"
+            },
+            "3": {
+              "name": "comment.block.trust.revision.intenttext"
+            }
+          }
         }
       ]
     },

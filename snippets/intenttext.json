@@ -106,5 +106,26 @@
       "page: ${4:A4} | margins: ${5:2.5cm}"
     ],
     "description": "Print layout settings"
+  },
+  "IntentText Track": {
+    "prefix": "track",
+    "body": [
+      "track: | version: 1.0 | by: ${1:name}"
+    ],
+    "description": "Enable document history tracking"
+  },
+  "IntentText Sign": {
+    "prefix": "sign",
+    "body": [
+      "sign: ${1:Full Name} | role: ${2:Role} | at: ${3:timestamp} | hash: ${4:hash}"
+    ],
+    "description": "Cryptographic document signature"
+  },
+  "IntentText Approve": {
+    "prefix": "approve",
+    "body": [
+      "approve: ${1:description} | by: ${2:name} | role: ${3:role} | at: ${4:timestamp}"
+    ],
+    "description": "Workflow approval stamp"
   }
 }

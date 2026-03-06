@@ -58,6 +58,18 @@
         "command": "intenttext.preview",
         "title": "IntentText: Open Preview",
         "icon": "$(open-preview)"
+      },
+      {
+        "command": "intenttext.seal",
+        "title": "IntentText: Seal Document"
+      },
+      {
+        "command": "intenttext.verify",
+        "title": "IntentText: Verify Document"
+      },
+      {
+        "command": "intenttext.history",
+        "title": "IntentText: Show Document History"
       }
     ],
     "keybindings": [

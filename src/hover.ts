@@ -231,6 +231,41 @@ const KEYWORD_DOCS: Record<
     description: "Horizontal rule divider (written as `---`).",
     properties: [],
   },
+  track: {
+    description:
+      "Activates history tracking for this document. Every save records what changed, who changed it, and when.",
+    properties: ["version", "by"],
+  },
+  sign: {
+    description:
+      "Cryptographic signature — binds a named person to the exact document content at this moment. The hash: property is computed from document content and will invalidate if content changes.",
+    properties: ["role", "at", "hash"],
+  },
+  approve: {
+    description:
+      "Workflow approval — records that a named person reviewed and approved this document at a specific time. Different from sign: — this is process approval, not legal binding.",
+    properties: ["by", "role", "at", "ref"],
+  },
+  freeze: {
+    description:
+      "Seals the document as a final immutable record. Added by `intenttext seal` command. Run `intenttext verify` to check document integrity.",
+    properties: ["at", "hash", "status"],
+  },
+  revision: {
+    description:
+      "System-generated change record in the history section. Shows what changed, who changed it, and when.",
+    properties: [
+      "version",
+      "at",
+      "by",
+      "change",
+      "id",
+      "block",
+      "section",
+      "was",
+      "now",
+    ],
+  },
 };
 
 export function createHoverProvider(): vscode.HoverProvider {
