@@ -169,6 +169,20 @@
               "name": "string.unquoted.content.intenttext"
             }
           }
+        },
+        {
+          "match": "^(history)(:)\\s*(.*)",
+          "captures": {
+            "1": {
+              "name": "comment.block.trust.history.intenttext"
+            },
+            "2": {
+              "name": "punctuation.separator.intenttext"
+            },
+            "3": {
+              "name": "comment.block.trust.history.intenttext"
+            }
+          }
         }
       ]
     },
