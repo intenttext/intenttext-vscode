@@ -183,5 +183,47 @@
       "deadline: ${1:Milestone name} | date: ${2:2026-12-31} | owner: ${3:person} | consequence: ${4:What happens if missed}"
     ],
     "description": "Temporal commitment with consequence"
+  },
+  "Freeze": {
+    "prefix": "freeze",
+    "body": [
+      "freeze: | at: ${1:timestamp} | hash: ${2:hash} | status: locked"
+    ],
+    "description": "Seal/lock a document"
+  },
+  "Revision": {
+    "prefix": "revision",
+    "body": [
+      "revision: ${1:Description of change} | by: ${2:name} | at: ${3:date}"
+    ],
+    "description": "Revision history entry"
+  },
+  "Meta": {
+    "prefix": "meta",
+    "body": [
+      "meta: | ${1:key}: ${2:value}"
+    ],
+    "description": "Document metadata properties"
+  },
+  "Header": {
+    "prefix": "header",
+    "body": [
+      "header: ${1:Header text}"
+    ],
+    "description": "Print layout header"
+  },
+  "Footer": {
+    "prefix": "footer",
+    "body": [
+      "footer: ${1:Page {{page}}}"
+    ],
+    "description": "Print layout footer"
+  },
+  "Watermark": {
+    "prefix": "watermark",
+    "body": [
+      "watermark: ${1:DRAFT} | opacity: ${2:0.1}"
+    ],
+    "description": "Print layout watermark"
   }
 }

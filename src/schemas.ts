@@ -52,6 +52,7 @@ export const ALL_KEYWORDS = [
   // Metadata
   "agent",
   "model",
+  "meta",
   // Document generation
   "font",
   "page",
@@ -62,6 +63,16 @@ export const ALL_KEYWORDS = [
   "footnote",
   "toc",
   "dedication",
+  // Trust
+  "track",
+  "approve",
+  "sign",
+  "freeze",
+  "revision",
+  // Print layout
+  "header",
+  "footer",
+  "watermark",
   // Divider (special)
   "divider",
   // v2.11 additions
@@ -326,5 +337,58 @@ export const BLOCK_SCHEMAS: Record<string, PropertySchema[]> = {
       label: "Status",
       options: ["pending", "met", "missed", "extended"],
     },
+  ],
+  track: [
+    { key: "version", label: "Document version", placeholder: "1.0" },
+    { key: "by", label: "Author", placeholder: "name" },
+  ],
+  approve: [
+    { key: "by", label: "Approved by", placeholder: "name" },
+    { key: "role", label: "Role", placeholder: "Legal Counsel" },
+    { key: "at", label: "Timestamp", placeholder: "2026-01-01T00:00:00Z" },
+  ],
+  sign: [
+    { key: "role", label: "Signer role", placeholder: "CEO" },
+    { key: "at", label: "Timestamp", placeholder: "2026-01-01T00:00:00Z" },
+    { key: "hash", label: "Document hash", placeholder: "sha256:..." },
+  ],
+  freeze: [
+    {
+      key: "at",
+      label: "Freeze timestamp",
+      placeholder: "2026-01-01T00:00:00Z",
+    },
+    { key: "hash", label: "Document hash", placeholder: "sha256:..." },
+    { key: "status", label: "Lock status", options: ["locked"] },
+  ],
+  meta: [
+    { key: "author", label: "Author", placeholder: "name" },
+    { key: "lang", label: "Language", placeholder: "en" },
+    {
+      key: "theme",
+      label: "Theme",
+      options: [
+        "corporate",
+        "minimal",
+        "warm",
+        "technical",
+        "print",
+        "legal",
+        "editorial",
+        "dark",
+      ],
+    },
+  ],
+  header: [
+    { key: "text", label: "Header text", placeholder: "text" },
+    { key: "align", label: "Alignment", options: ["left", "center", "right"] },
+  ],
+  footer: [
+    { key: "text", label: "Footer text", placeholder: "Page {{page}}" },
+    { key: "align", label: "Alignment", options: ["left", "center", "right"] },
+  ],
+  watermark: [
+    { key: "text", label: "Watermark text", placeholder: "DRAFT" },
+    { key: "opacity", label: "Opacity", placeholder: "0.1" },
   ],
 };
