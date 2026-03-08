@@ -99,7 +99,12 @@
               "name": "punctuation.separator.intenttext"
             },
             "3": {
-              "name": "string.unquoted.content.intenttext"
+              "name": "string.unquoted.content.intenttext",
+              "patterns": [
+                {
+                  "include": "#template-variable"
+                }
+              ]
             }
           }
         },
@@ -113,7 +118,12 @@
               "name": "punctuation.separator.intenttext"
             },
             "3": {
-              "name": "string.unquoted.content.intenttext"
+              "name": "string.unquoted.content.intenttext",
+              "patterns": [
+                {
+                  "include": "#template-variable"
+                }
+              ]
             }
           }
         },
@@ -127,7 +137,12 @@
               "name": "punctuation.separator.intenttext"
             },
             "3": {
-              "name": "string.unquoted.content.intenttext"
+              "name": "string.unquoted.content.intenttext",
+              "patterns": [
+                {
+                  "include": "#template-variable"
+                }
+              ]
             }
           }
         },
@@ -141,7 +156,12 @@
               "name": "punctuation.separator.intenttext"
             },
             "3": {
-              "name": "string.unquoted.content.intenttext"
+              "name": "string.unquoted.content.intenttext",
+              "patterns": [
+                {
+                  "include": "#template-variable"
+                }
+              ]
             }
           }
         },
@@ -169,7 +189,12 @@
               "name": "punctuation.separator.intenttext"
             },
             "3": {
-              "name": "string.unquoted.content.intenttext"
+              "name": "string.unquoted.content.intenttext",
+              "patterns": [
+                {
+                  "include": "#template-variable"
+                }
+              ]
             }
           }
         },
@@ -199,7 +224,12 @@
           "name": "punctuation.separator.intenttext"
         },
         "3": {
-          "name": "markup.heading.intenttext"
+          "name": "markup.heading.intenttext",
+          "patterns": [
+            {
+              "include": "#template-variable"
+            }
+          ]
         }
       }
     },
@@ -213,7 +243,12 @@
           "name": "punctuation.separator.intenttext"
         },
         "3": {
-          "name": "markup.heading.section.intenttext"
+          "name": "markup.heading.section.intenttext",
+          "patterns": [
+            {
+              "include": "#template-variable"
+            }
+          ]
         }
       }
     },
@@ -227,7 +262,12 @@
           "name": "punctuation.separator.intenttext"
         },
         "3": {
-          "name": "string.unquoted.content.intenttext"
+          "name": "string.unquoted.content.intenttext",
+          "patterns": [
+            {
+              "include": "#template-variable"
+            }
+          ]
         }
       }
     },
@@ -241,7 +281,12 @@
           "name": "punctuation.separator.intenttext"
         },
         "3": {
-          "name": "string.unquoted.content.intenttext"
+          "name": "string.unquoted.content.intenttext",
+          "patterns": [
+            {
+              "include": "#template-variable"
+            }
+          ]
         }
       }
     },
@@ -255,7 +300,12 @@
           "name": "punctuation.separator.intenttext"
         },
         "3": {
-          "name": "string.unquoted.content.intenttext"
+          "name": "string.unquoted.content.intenttext",
+          "patterns": [
+            {
+              "include": "#template-variable"
+            }
+          ]
         }
       }
     },
@@ -269,7 +319,12 @@
           "name": "punctuation.separator.intenttext"
         },
         "3": {
-          "name": "string.unquoted.content.intenttext"
+          "name": "string.unquoted.content.intenttext",
+          "patterns": [
+            {
+              "include": "#template-variable"
+            }
+          ]
         }
       }
     },
@@ -283,7 +338,12 @@
           "name": "punctuation.separator.intenttext"
         },
         "3": {
-          "name": "string.unquoted.content.intenttext"
+          "name": "string.unquoted.content.intenttext",
+          "patterns": [
+            {
+              "include": "#template-variable"
+            }
+          ]
         }
       }
     },
@@ -297,7 +357,12 @@
           "name": "punctuation.separator.intenttext"
         },
         "3": {
-          "name": "string.unquoted.content.intenttext"
+          "name": "string.unquoted.content.intenttext",
+          "patterns": [
+            {
+              "include": "#template-variable"
+            }
+          ]
         }
       }
     },
