@@ -21,7 +21,12 @@ const KEYWORD_DOCS: Record<
     properties: [],
   },
   note: {
-    description: "Informational callout box.",
+    description: "Informational callout (alias for text).",
+    properties: [],
+  },
+  text: {
+    description:
+      "Text content block — the canonical type for callouts and body text.",
     properties: [],
   },
   info: {
@@ -30,6 +35,10 @@ const KEYWORD_DOCS: Record<
   },
   warning: {
     description: "Warning callout — highlights important cautions.",
+    properties: [],
+  },
+  danger: {
+    description: "Danger callout — critical or destructive warning.",
     properties: [],
   },
   tip: {
@@ -42,6 +51,10 @@ const KEYWORD_DOCS: Record<
   },
   quote: {
     description: "Block quote — attributed text from a source.",
+    properties: [],
+  },
+  cite: {
+    description: "Citation — reference a source with attribution.",
     properties: [],
   },
   image: {
@@ -63,10 +76,14 @@ const KEYWORD_DOCS: Record<
   },
   code: {
     description:
-      "Fenced code block — content goes on following lines until `end:`.",
-    properties: ["language"],
+      "Code block — wrap value in triple backticks. Use `lang:` property for syntax highlighting.",
+    properties: ["lang"],
   },
   headers: {
+    description: "Define table column headers (alias for columns).",
+    properties: [],
+  },
+  columns: {
     description: "Define table column headers (pipe-separated values).",
     properties: [],
   },
@@ -79,7 +96,7 @@ const KEYWORD_DOCS: Record<
     properties: ["owner", "due", "priority", "status"],
   },
   done: {
-    description: "A completed task (alias for task with done status).",
+    description: "A completed task — its own canonical block type.",
     properties: ["owner", "due"],
   },
   ask: {
@@ -160,8 +177,13 @@ const KEYWORD_DOCS: Record<
     properties: ["input", "output"],
   },
   emit: {
-    description: "Emit an event or status update.",
+    description:
+      "Emit an event or status update (deprecated alias for signal).",
     properties: [],
+  },
+  signal: {
+    description: "Emit an event or status update in a workflow.",
+    properties: ["event"],
   },
   policy: {
     description:
@@ -302,6 +324,43 @@ const KEYWORD_DOCS: Record<
       "Temporal commitment with consequence. Renders with proximity color coding — red when < 7 days, amber < 30 days.",
     properties: ["date", "consequence", "owner", "status"],
   },
+  input: {
+    description: "Form input field — collects data from the user.",
+    properties: ["type", "required", "placeholder", "default"],
+  },
+  output: {
+    description: "Output variable or result data from a step.",
+    properties: ["format"],
+  },
+  group: {
+    description:
+      "Logical grouping of blocks — creates a collapsible container.",
+    properties: [],
+  },
+  memory: {
+    description: "Store or retrieve key-value data for agent memory.",
+    properties: ["key", "value"],
+  },
+  prompt: {
+    description: "Prompt text or instruction for an AI agent.",
+    properties: [],
+  },
+  tool: {
+    description: "Declare a tool available to an agent.",
+    properties: ["input", "output"],
+  },
+  assert: {
+    description: "Assertion — verify an expected condition in a workflow.",
+    properties: ["expect", "actual"],
+  },
+  secret: {
+    description: "Secret or credential reference — never rendered in output.",
+    properties: ["env"],
+  },
+  history: {
+    description: "Document change history section boundary.",
+    properties: [],
+  },
 };
 
 export function createHoverProvider(): vscode.HoverProvider {
@@ -326,7 +385,7 @@ export function createHoverProvider(): vscode.HoverProvider {
         );
       }
       md.appendMarkdown(
-        `\n\n[IntentText Spec](https://github.com/intenttext/IntentText/blob/main/docs/SPEC.md)`,
+        `\n\n[IntentText Docs](https://itdocs.vercel.app/docs/reference)`,
       );
 
       return new vscode.Hover(md);

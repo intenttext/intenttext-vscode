@@ -50,7 +50,28 @@
     "body": [
       "note: ${1:Note content}"
     ],
-    "description": "Note callout"
+    "description": "Note callout (alias for text)"
+  },
+  "Text": {
+    "prefix": "text",
+    "body": [
+      "text: ${1:Content}"
+    ],
+    "description": "Text content block"
+  },
+  "Danger": {
+    "prefix": "danger",
+    "body": [
+      "danger: ${1:Critical warning}"
+    ],
+    "description": "Danger callout"
+  },
+  "Cite": {
+    "prefix": "cite",
+    "body": [
+      "cite: ${1:Source reference}"
+    ],
+    "description": "Citation reference"
   },
   "Warning": {
     "prefix": "warning",
@@ -62,11 +83,18 @@
   "Code Block": {
     "prefix": "code",
     "body": [
-      "code: ${1:language}",
-      "$0",
-      "end:"
+      "code: ```$2``` | lang: ${1:js}"
     ],
-    "description": "Code block with language"
+    "description": "Inline code block with language"
+  },
+  "Code Block (Multi-line)": {
+    "prefix": "codeblock",
+    "body": [
+      "code: ```",
+      "$0",
+      "``` | lang: ${1:js}"
+    ],
+    "description": "Multi-line code block"
   },
   "Parallel": {
     "prefix": "parallel",
@@ -91,6 +119,69 @@
       "result: ${9:Final output}"
     ],
     "description": "Complete workflow template"
+  },
+  "Signal": {
+    "prefix": "signal",
+    "body": [
+      "signal: ${1:Event description} | event: ${2:event-name}"
+    ],
+    "description": "Emit an event or status update"
+  },
+  "Columns": {
+    "prefix": "columns",
+    "body": [
+      "columns: ${1:Col 1} | ${2:Col 2} | ${3:Col 3}"
+    ],
+    "description": "Table column headers"
+  },
+  "Input": {
+    "prefix": "input",
+    "body": [
+      "input: ${1:Field label} | type: ${2|text,number,email,date,url|} | required: ${3|true,false|}"
+    ],
+    "description": "Form input field"
+  },
+  "Output": {
+    "prefix": "output",
+    "body": [
+      "output: ${1:Result data}"
+    ],
+    "description": "Output variable or result"
+  },
+  "Assert": {
+    "prefix": "assert",
+    "body": [
+      "assert: ${1:Condition description} | expect: ${2:expected}"
+    ],
+    "description": "Workflow assertion"
+  },
+  "Secret": {
+    "prefix": "secret",
+    "body": [
+      "secret: ${1:Secret name} | env: ${2:ENV_VAR}"
+    ],
+    "description": "Secret or credential reference"
+  },
+  "Memory": {
+    "prefix": "memory",
+    "body": [
+      "memory: ${1:Description} | key: ${2:key} | value: ${3:value}"
+    ],
+    "description": "Agent memory store"
+  },
+  "Prompt": {
+    "prefix": "prompt",
+    "body": [
+      "prompt: ${1:Instruction for the agent}"
+    ],
+    "description": "Agent prompt instruction"
+  },
+  "Tool": {
+    "prefix": "tool",
+    "body": [
+      "tool: ${1:Tool name} | input: ${2:data} | output: ${3:var}"
+    ],
+    "description": "Declare an agent tool"
   },
   "Template Variable": {
     "prefix": "var",

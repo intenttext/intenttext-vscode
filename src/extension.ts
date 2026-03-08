@@ -2,7 +2,7 @@ import * as vscode from "vscode";
 import { createDiagnosticsProvider } from "./diagnostics";
 import { createHoverProvider } from "./hover";
 import { createCompletionProvider } from "./completion";
-import { createPreviewCommand, updatePreview } from "./preview";
+import { createPreviewCommands, updatePreview } from "./preview";
 import { execSync } from "child_process";
 
 const LANGUAGE_ID = "intenttext";
@@ -49,8 +49,8 @@ export function activate(context: vscode.ExtensionContext) {
       "|", // trigger on pipe
     ),
 
-    // Preview command
-    createPreviewCommand(),
+    // Preview commands
+    ...createPreviewCommands(),
 
     // Seal command
     vscode.commands.registerCommand("intenttext.seal", async () => {

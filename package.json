@@ -2,7 +2,7 @@
   "name": "intenttext",
   "displayName": "IntentText (.it)",
   "description": "Syntax highlighting, live preview, inline validation, hover docs, and auto-completion for IntentText documents",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "publisher": "intenttext",
   "icon": "icon.png",
   "repository": {
@@ -60,6 +60,11 @@
         "icon": "$(open-preview)"
       },
       {
+        "command": "intenttext.previewToSide",
+        "title": "IntentText: Open Preview to the Side",
+        "icon": "$(open-preview)"
+      },
+      {
         "command": "intenttext.seal",
         "title": "IntentText: Seal Document"
       },
@@ -78,14 +83,32 @@
         "key": "ctrl+shift+v",
         "mac": "cmd+shift+v",
         "when": "editorLangId == intenttext"
+      },
+      {
+        "command": "intenttext.previewToSide",
+        "key": "ctrl+k v",
+        "mac": "cmd+k v",
+        "when": "editorLangId == intenttext"
       }
     ],
     "menus": {
       "editor/title": [
         {
-          "command": "intenttext.preview",
+          "command": "intenttext.previewToSide",
           "when": "editorLangId == intenttext",
           "group": "navigation"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "intenttext.preview",
+          "when": "editorLangId == intenttext",
+          "group": "intenttext@1"
+        },
+        {
+          "command": "intenttext.previewToSide",
+          "when": "editorLangId == intenttext",
+          "group": "intenttext@2"
         }
       ]
     }
@@ -97,7 +120,7 @@
     "publish": "npx vsce publish"
   },
   "dependencies": {
-    "@intenttext/core": "^2.12.1"
+    "@intenttext/core": "^2.13.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",

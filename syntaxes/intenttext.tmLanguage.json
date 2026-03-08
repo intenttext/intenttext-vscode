@@ -35,16 +35,19 @@
       "name": "variable.other.template.intenttext"
     },
     "code-block": {
-      "begin": "^code:.*$",
-      "end": "^end:.*$",
+      "begin": "^(code)(:)\\s*```\\s*$",
+      "end": "^```(.*)$",
       "beginCaptures": {
-        "0": {
+        "1": {
           "name": "keyword.control.code.intenttext"
+        },
+        "2": {
+          "name": "punctuation.separator.intenttext"
         }
       },
       "endCaptures": {
         "0": {
-          "name": "keyword.control.end.intenttext"
+          "name": "keyword.control.code.intenttext"
         }
       },
       "contentName": "meta.embedded.block.code.intenttext"
@@ -215,7 +218,7 @@
       }
     },
     "keyword-agentic": {
-      "match": "^(step|decision|trigger|loop|checkpoint|audit|error|import|export|progress|context|result|handoff|wait|parallel|retry|gate|call|emit)(:)\\s*(.*)",
+      "match": "^(step|decision|trigger|loop|checkpoint|audit|error|import|export|progress|context|result|handoff|wait|parallel|retry|gate|call|emit|signal|memory|prompt|tool|assert|secret)(:)\\s*(.*)",
       "captures": {
         "1": {
           "name": "entity.name.function.agentic.intenttext"
@@ -229,7 +232,7 @@
       }
     },
     "keyword-callout": {
-      "match": "^(note|info|warning|tip|success)(:)\\s*(.*)",
+      "match": "^(text|note|info|warning|danger|tip|success|cite)(:)\\s*(.*)",
       "captures": {
         "1": {
           "name": "markup.italic.callout.intenttext"
@@ -257,7 +260,7 @@
       }
     },
     "keyword-content": {
-      "match": "^(quote|image|link|ref|embed|code|end|headers|row|def|define|term|glossary|figure|fig|diagram|chart|contact|person|party)(:)\\s*(.*)",
+      "match": "^(quote|image|link|ref|embed|code|columns|headers|row|def|define|term|glossary|figure|fig|diagram|chart|contact|person|party|input|output)(:)\\s*(.*)",
       "captures": {
         "1": {
           "name": "support.type.content.intenttext"
@@ -285,7 +288,7 @@
       }
     },
     "keyword-metadata": {
-      "match": "^(agent|model|status|metric|kpi|measure|stat)(:)\\s*(.*)",
+      "match": "^(agent|model|status|metric|kpi|measure|stat|meta)(:)\\s*(.*)",
       "captures": {
         "1": {
           "name": "constant.language.metadata.intenttext"
@@ -313,7 +316,7 @@
           "name": "markup.italic.intenttext"
         },
         {
-          "match": "~~([^~]+)~~",
+          "match": "~([^~]+)~",
           "name": "markup.strikethrough.intenttext"
         },
         {

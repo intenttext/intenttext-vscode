@@ -3,30 +3,39 @@ import { renderHTML, parseIntentText } from "./parser-bridge";
 
 let panel: vscode.WebviewPanel | undefined;
 
-export function createPreviewCommand(): vscode.Disposable {
-  return vscode.commands.registerCommand("intenttext.preview", () => {
-    const editor = vscode.window.activeTextEditor;
-    if (!editor || editor.document.languageId !== "intenttext") {
-      vscode.window.showWarningMessage("Open an IntentText (.it) file first.");
-      return;
-    }
+function openPreview(side: boolean): void {
+  const editor = vscode.window.activeTextEditor;
+  if (!editor || editor.document.languageId !== "intenttext") {
+    vscode.window.showWarningMessage("Open an IntentText (.it) file first.");
+    return;
+  }
 
-    if (panel) {
-      panel.reveal(vscode.ViewColumn.Beside);
-    } else {
-      panel = vscode.window.createWebviewPanel(
-        "intenttextPreview",
-        "IntentText Preview",
-        vscode.ViewColumn.Beside,
-        { enableScripts: false },
-      );
-      panel.onDidDispose(() => {
-        panel = undefined;
-      });
-    }
+  if (panel) {
+    panel.reveal(side ? vscode.ViewColumn.Beside : vscode.ViewColumn.Active);
+  } else {
+    panel = vscode.window.createWebviewPanel(
+      "intenttextPreview",
+      "IntentText Preview",
+      side ? vscode.ViewColumn.Beside : vscode.ViewColumn.Active,
+      { enableScripts: false },
+    );
+    panel.onDidDispose(() => {
+      panel = undefined;
+    });
+  }
 
-    updatePreview(editor.document);
-  });
+  updatePreview(editor.document);
+}
+
+export function createPreviewCommands(): vscode.Disposable[] {
+  return [
+    vscode.commands.registerCommand("intenttext.preview", () =>
+      openPreview(false),
+    ),
+    vscode.commands.registerCommand("intenttext.previewToSide", () =>
+      openPreview(true),
+    ),
+  ];
 }
 
 export function updatePreview(document: vscode.TextDocument): void {
@@ -63,7 +72,7 @@ function wrapHtml(body: string): string {
     th, td { border: 1px solid #ddd; padding: 0.5rem; text-align: left; }
     th { background: #f0f0f0; }
     .callout { padding: 0.75rem 1rem; border-radius: 4px; margin: 0.5rem 0; }
-    .callout-note { background: #e7f3fe; border-left: 4px solid #2196F3; }
+    .callout-note, .callout-text { background: #e7f3fe; border-left: 4px solid #2196F3; }
     .callout-warning { background: #fff3cd; border-left: 4px solid #ffc107; }
     .callout-tip { background: #d4edda; border-left: 4px solid #28a745; }
     .callout-success { background: #d4edda; border-left: 4px solid #28a745; }
