@@ -41,6 +41,22 @@ export function createDiagnosticsProvider(
       diagnostics.push(diagnostic);
     }
 
+    // Surface parser-level diagnostics (e.g. deprecated property warnings)
+    for (const pd of doc.diagnostics ?? []) {
+      const lineIdx = Math.max(0, pd.line - 1);
+      const range = new vscode.Range(
+        new vscode.Position(lineIdx, 0),
+        new vscode.Position(lineIdx, 10000),
+      );
+      const severity =
+        pd.severity === "error"
+          ? vscode.DiagnosticSeverity.Error
+          : vscode.DiagnosticSeverity.Warning;
+      const diagnostic = new vscode.Diagnostic(range, pd.message, severity);
+      diagnostic.source = "IntentText";
+      diagnostics.push(diagnostic);
+    }
+
     collection.set(document.uri, diagnostics);
   };
 }

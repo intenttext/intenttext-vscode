@@ -2,7 +2,7 @@
   "name": "intenttext",
   "displayName": "IntentText (.it)",
   "description": "Syntax highlighting, live preview, inline validation, hover docs, and auto-completion for IntentText documents",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "publisher": "intenttext",
   "icon": "icon.png",
   "repository": {
@@ -57,12 +57,14 @@
       {
         "command": "intenttext.preview",
         "title": "IntentText: Open Preview",
-        "icon": "$(open-preview)"
+        "icon": "$(open-preview)",
+        "tooltip": "Open IntentText Preview"
       },
       {
         "command": "intenttext.previewToSide",
         "title": "IntentText: Open Preview to the Side",
-        "icon": "$(open-preview)"
+        "icon": "$(open-preview)",
+        "tooltip": "Open IntentText Preview to the Side"
       },
       {
         "command": "intenttext.seal",
@@ -96,19 +98,30 @@
         {
           "command": "intenttext.previewToSide",
           "when": "editorLangId == intenttext",
-          "group": "navigation"
+          "group": "navigation",
+          "tooltip": "Open IntentText Preview to the Side"
         }
       ],
       "editor/context": [
         {
           "command": "intenttext.preview",
-          "when": "editorLangId == intenttext",
+          "when": "resourceExtname == .it || editorLangId == intenttext",
           "group": "intenttext@1"
         },
         {
           "command": "intenttext.previewToSide",
-          "when": "editorLangId == intenttext",
+          "when": "resourceExtname == .it || editorLangId == intenttext",
           "group": "intenttext@2"
+        },
+        {
+          "command": "intenttext.seal",
+          "when": "resourceExtname == .it || editorLangId == intenttext",
+          "group": "intenttext@3"
+        },
+        {
+          "command": "intenttext.verify",
+          "when": "resourceExtname == .it || editorLangId == intenttext",
+          "group": "intenttext@4"
         }
       ]
     }
@@ -120,7 +133,7 @@
     "publish": "npx vsce publish"
   },
   "dependencies": {
-    "@intenttext/core": "^2.13.0"
+    "@intenttext/core": "^2.13.3"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",

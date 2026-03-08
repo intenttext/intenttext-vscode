@@ -38,7 +38,6 @@ export const ALL_KEYWORDS = [
   "toc",
   // Data
   "columns",
-  "headers",
   "row",
   "input",
   "output",
@@ -48,7 +47,6 @@ export const ALL_KEYWORDS = [
   "gate",
   "trigger",
   "signal",
-  "emit",
   "decision",
   "memory",
   "prompt",

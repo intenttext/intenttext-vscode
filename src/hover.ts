@@ -332,11 +332,6 @@ const KEYWORD_DOCS: Record<
     description: "Output variable or result data from a step.",
     properties: ["format"],
   },
-  group: {
-    description:
-      "Logical grouping of blocks — creates a collapsible container.",
-    properties: [],
-  },
   memory: {
     description: "Store or retrieve key-value data for agent memory.",
     properties: ["key", "value"],
