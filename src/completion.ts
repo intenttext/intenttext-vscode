@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { ALL_KEYWORDS, BLOCK_SCHEMAS } from "./schemas";
+import { ALL_KEYWORDS, EXTENSION_NAMESPACES, BLOCK_SCHEMAS } from "./schemas";
 
 export function createCompletionProvider(): vscode.CompletionItemProvider {
   return {
@@ -20,6 +20,18 @@ export function createCompletionProvider(): vscode.CompletionItemProvider {
           item.detail = "IntentText keyword";
           items.push(item);
         }
+
+        // Extension namespace completions (x-writer:, x-agent:, etc.)
+        for (const ns of EXTENSION_NAMESPACES) {
+          const item = new vscode.CompletionItem(
+            `${ns}:`,
+            vscode.CompletionItemKind.Module,
+          );
+          item.insertText = new vscode.SnippetString(`${ns}: $1`);
+          item.detail = "IntentText extension namespace";
+          items.push(item);
+        }
+
         return items;
       }
 

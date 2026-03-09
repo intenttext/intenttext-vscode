@@ -1,91 +1,101 @@
 export const ALL_KEYWORDS = [
-  // Identity
+  // Document identity (4)
   "title",
   "summary",
   "meta",
   "context",
-  "track",
-  "agent",
-  "model",
-  // Content
+  // Structure (3)
+  "section",
+  "sub",
+  "toc",
+  // Content (7)
   "text",
-  "note",
+  "info",
   "quote",
   "cite",
-  "warning",
-  "danger",
-  "tip",
-  "info",
-  "success",
   "code",
   "image",
   "link",
-  "def",
-  "figure",
-  "contact",
-  "byline",
-  "epigraph",
-  "caption",
-  "footnote",
-  "dedication",
-  // Structure
-  "section",
-  "sub",
-  "break",
-  "ref",
-  "deadline",
-  "embed",
-  "toc",
-  // Data
+  // Tasks (3)
+  "task",
+  "done",
+  "ask",
+  // Data (3)
   "columns",
   "row",
-  "input",
-  "output",
   "metric",
-  // Agent
+  // Agentic workflow (7)
   "step",
+  "decision",
   "gate",
   "trigger",
-  "signal",
-  "decision",
-  "memory",
-  "prompt",
-  "tool",
-  "audit",
-  "done",
-  "error",
   "result",
-  "handoff",
-  "wait",
-  "parallel",
-  "retry",
-  "call",
-  "loop",
-  "checkpoint",
-  "import",
-  "export",
-  "progress",
-  "assert",
-  "secret",
-  "task",
-  "ask",
   "policy",
-  // Trust
+  "audit",
+  // Trust (5)
+  "track",
   "approve",
   "sign",
   "freeze",
-  "revision",
   "amendment",
-  "history",
-  // Layout
+  // Layout (5)
   "page",
-  "font",
   "header",
   "footer",
   "watermark",
-  "signline",
-  "divider",
+  "break",
 ] as const;
+
+/** Extension keyword namespaces — use as `x-writer: byline`, `x-agent: loop`, etc. */
+export const EXTENSION_NAMESPACES = [
+  "x-writer",
+  "x-doc",
+  "x-agent",
+  "x-trust",
+  "x-layout",
+  "x-exp",
+] as const;
+
+/** Deprecated aliases — still parse correctly but prefer canonical forms above. */
+export const DEPRECATED_KEYWORDS = [
+  // info: aliases
+  "warning",
+  "danger",
+  "tip",
+  "success",
+  // text: aliases
+  "note",
+  // quote: aliases
+  "blockquote",
+  "excerpt",
+  // section: aliases
+  "heading",
+  "chapter",
+  // sub: aliases
+  "subheading",
+  // task: aliases
+  "todo",
+  "action",
+  // done: aliases
+  "completed",
+  "finished",
+  // ask: aliases
+  "question",
+  // metric: aliases
+  "stat",
+  "kpi",
+  // image: aliases
+  "img",
+  "photo",
+  // link: aliases
+  "url",
+  "href",
+  // sign: aliases
+  "sig",
+  // amendment: aliases
+  "amend",
+] as const;
+
 
 export interface PropertySchema {
   key: string;
