@@ -2,7 +2,7 @@
   "name": "intenttext",
   "displayName": "IntentText (.it)",
   "description": "Syntax highlighting, live preview, inline validation, hover docs, and auto-completion for IntentText documents",
-  "version": "1.4.5",
+  "version": "1.4.6",
   "publisher": "intenttext",
   "icon": "icon.png",
   "repository": {
@@ -133,7 +133,7 @@
     "publish": "npx vsce publish"
   },
   "dependencies": {
-    "@intenttext/core": "^2.14.2"
+    "@intenttext/core": "^3.1.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
