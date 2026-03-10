@@ -8,7 +8,7 @@
 
 ### Syntax Highlighting
 
-Full TextMate grammar covering all 50+ IntentText keywords — structure, content, agentic workflow, document-generation, and metadata blocks. Inline formatting (`**bold**`, `*italic*`, `` `code` ``, `==highlight==`), template variables (`{{var}}`), and comments (`//`) are all highlighted.
+Full TextMate grammar covering the canonical keyword set plus aliases and extension keywords — structure, content, agentic workflow, document-generation, and metadata blocks. Inline formatting (`**bold**`, `*italic*`, `` `code` ``, `==highlight==`), template variables (`{{var}}`), and comments (`//`) are all highlighted.
 
 ### Live Preview
 
