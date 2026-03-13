@@ -133,7 +133,7 @@
     "publish": "npx vsce publish"
   },
   "dependencies": {
-    "@intenttext/core": "^3.3.0"
+    "@intenttext/core": "^3.3.1"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
